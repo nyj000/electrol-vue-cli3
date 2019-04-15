@@ -42,10 +42,6 @@ module.exports = {
         alias: {
           '@': path.join(__dirname, './src'),
           'vue$': 'vue/dist/vue.esm.js',
-          'common': path.join(__dirname, './src/common'),
-          'api': path.join(__dirname, './src/api'),
-          'view': path.join(__dirname, './src/view'),
-          'static': path.join(__dirname, './static'),
         },
         extensions: ['.js', '.vue', '.json', '.css', '.node']
       },
@@ -58,21 +54,6 @@ module.exports = {
           test: /\.js$|\.css$|\.html$/,
           threshold: 10240, // 大于10k的文件压缩
           deleteOriginalAssets: false, // 是否删除源文件
-        }),
-      )
-    }
-    // 非web 使用index.ejs模板
-    if (!IS_WEB) {
-      config.plugins.push(
-        new HtmlWebpackPlugin({
-          filename: 'index.html',
-          template: path.resolve(__dirname, './public/index.html'),
-          minify: {
-            collapseWhitespace: true,
-            removeAttributeQuotes: true,
-            removeComments: true
-          },
-          nodeModules: false
         }),
       )
     }
