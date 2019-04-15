@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>electron-vue-cli3</title>
+    <% if (htmlWebpackPlugin.options.nodeModules) { %>
+      <!-- Add `node_modules/` to global paths so `require` works properly in development -->
+      <script>
+        require('module').globalPaths.push('<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>')
+      </script>
+    <% } %>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but electron-vue-cli3 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <% if (!process.browser) { %>
+      <script>
+        if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+      </script>
+    <% } %>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

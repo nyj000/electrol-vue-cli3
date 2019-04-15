@@ -1,0 +1,15 @@
+{
+  "comments": false,
+  "env": {
+    "web": {
+      "presets": [
+        ["@vue/app", {
+          "polyfills": [
+            "es6.promise",
+            "es6.symbol"
+          ]
+        }]
+      ]
+    }
+  }
+}
